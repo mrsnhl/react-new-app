@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import GoogleMeetSquare from "./GoogleMeetSquare";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+let participants = [
+    {
+        name: 'Vikas',
+        isMuted: false
+    },
+    {
+        name: 'Chandramani',
+        isMuted: true
+    },
+    {
+        name: 'Divyansh',
+        isMuted: false
+    },
+    {
+        name: 'Chinmay',
+        isMuted: true
+    }
+]
+
+export default function App() {
+
+    function makeSquare (participant) {
+        return(
+            <GoogleMeetSquare name={participant.name} isMuted={participant.isMuted} />
+        )
+    }
+
+    return(
+            participants.map(makeSquare)
+    )
 }
-
-export default App;
